@@ -4,6 +4,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { ContextualSidebar, SidebarItem } from './ContextualSidebar';
 import { ScrollToTop } from './ScrollToTop';
+import { ScrollToTopButton } from './ScrollToTopButton';
 import { Footer } from './Footer';
 import { LoginModal } from '@/components/auth/LoginModal';
 import { useAuth } from '@/contexts/AuthContext';
@@ -39,6 +40,9 @@ export const Layout: React.FC = () => {
         {/* Footer */}
         <Footer />
       </div>
+
+      {/* Scroll to top button */}
+      <ScrollToTopButton />
 
       {/* Login Modal */}
       <LoginModal
