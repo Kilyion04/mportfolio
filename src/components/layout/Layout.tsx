@@ -25,7 +25,7 @@ export const Layout: React.FC = () => {
       )}
       
       {/* Main content */}
-      <main className="pt-16">
+      <main className={`pt-16 transition-all duration-300 ${hasSidebar ? 'ml-16' : ''}`}>
         <div className="min-h-[calc(100vh-4rem)]">
           <Outlet />
         </div>
