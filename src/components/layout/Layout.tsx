@@ -4,6 +4,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { ContextualSidebar, SidebarItem } from './ContextualSidebar';
 import { ScrollToTop } from './ScrollToTop';
+import { Footer } from './Footer';
 import { LoginModal } from '@/components/auth/LoginModal';
 import { useAuth } from '@/contexts/AuthContext';
 import { useSidebarItems } from '@/hooks/useSidebarItems';
@@ -32,6 +33,9 @@ export const Layout: React.FC = () => {
           <Outlet />
         </div>
       </main>
+
+      {/* Footer */}
+      <Footer />
 
       {/* Login Modal */}
       <LoginModal
