@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, ExternalLink, Github, Star } from 'lucide-react';
@@ -231,7 +230,7 @@ const Projects = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-display font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-display font-semibold text-gray-900 dark:text-white mb-2 text-center">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
