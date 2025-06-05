@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Eye, EyeOff, LogIn, Loader2, UserPlus } from 'lucide-react';
@@ -20,7 +19,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [name, setName] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { login, isLoading } = useAuth();
+  const { login, signup, isLoading } = useAuth();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,12 +35,30 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         return;
       }
       
-      // Simuler l'inscription
-      toast({
-        title: "Inscription réussie",
-        description: "Votre compte a été créé avec succès !",
-      });
-      setIsSignUp(false);
+      if (name.trim().length < 2) {
+        toast({
+          title: "Erreur",
+          description: "Le nom doit contenir au moins 2 caractères.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      const success = await signup(email, password, name);
+      
+      if (success) {
+        toast({
+          title: "Inscription réussie",
+          description: "Votre compte a été créé avec succès ! Vous êtes maintenant connecté.",
+        });
+        onClose();
+      } else {
+        toast({
+          title: "Erreur d'inscription",
+          description: "Cette adresse email est déjà utilisée.",
+          variant: "destructive",
+        });
+      }
       return;
     }
     
