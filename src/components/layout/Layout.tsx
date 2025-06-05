@@ -27,15 +27,18 @@ export const Layout: React.FC = () => {
         <ContextualSidebar items={sidebarItems} />
       )}
       
-      {/* Main content */}
-      <main className={`pt-16 transition-all duration-300 ${hasSidebar ? 'ml-16' : ''}`}>
-        <div className="min-h-[calc(100vh-4rem)]">
-          <Outlet />
-        </div>
-      </main>
+      {/* Main content wrapper */}
+      <div className={`transition-all duration-300 ${hasSidebar ? 'ml-16' : ''}`}>
+        {/* Main content */}
+        <main className="pt-16">
+          <div className="min-h-[calc(100vh-4rem)]">
+            <Outlet />
+          </div>
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
 
       {/* Login Modal */}
       <LoginModal
