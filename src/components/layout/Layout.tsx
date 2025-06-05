@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { ContextualSidebar, SidebarItem } from './ContextualSidebar';
+import { ScrollToTop } from './ScrollToTop';
 import { LoginModal } from '@/components/auth/LoginModal';
 import { useAuth } from '@/contexts/AuthContext';
 import { useSidebarItems } from '@/hooks/useSidebarItems';
@@ -17,6 +18,7 @@ export const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 w-full">
+      <ScrollToTop />
       <Navbar onLoginClick={() => setIsLoginModalOpen(true)} />
       
       {/* Sidebar contextuelle */}
