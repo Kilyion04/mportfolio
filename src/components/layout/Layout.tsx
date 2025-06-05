@@ -13,17 +13,19 @@ export const Layout: React.FC = () => {
   const location = useLocation();
   const sidebarItems = useSidebarItems(location.pathname);
 
+  const hasSidebar = sidebarItems.length > 0;
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 w-full">
       <Navbar onLoginClick={() => setIsLoginModalOpen(true)} />
       
       {/* Sidebar contextuelle */}
-      {sidebarItems.length > 0 && (
+      {hasSidebar && (
         <ContextualSidebar items={sidebarItems} />
       )}
       
       {/* Main content */}
-      <main className={`pt-16 transition-all duration-300 ${sidebarItems.length > 0 ? 'pl-16 hover:pl-64' : ''}`}>
+      <main className={`pt-16 transition-all duration-300 ${hasSidebar ? 'pl-16 hover:pl-64' : ''}`}>
         <div className="min-h-[calc(100vh-4rem)]">
           <Outlet />
         </div>

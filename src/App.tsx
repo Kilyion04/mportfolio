@@ -9,6 +9,9 @@ import { Layout } from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import MinecraftServers from "./pages/MinecraftServers";
+import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +28,9 @@ const App = () => (
               <Route index element={<Index />} />
               <Route path="projets" element={<Projects />} />
               <Route path="serveurs-minecraft" element={<MinecraftServers />} />
-              {/* ADD MORE ROUTES HERE LATER */}
+              <Route path="contact" element={<Contact />} />
+              <Route path="profil" element={<Profile />} />
+              <Route path="dashboard" element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
