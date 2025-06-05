@@ -12,12 +12,50 @@ export const HeroSection: React.FC = () => {
     { label: 'Projets réalisés', value: '10+', icon: BarChart3 }
   ];
 
+  // Configuration des bulles flottantes
+  const bubbles = Array.from({ length: 12 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 60 + 20, // Taille entre 20 et 80px
+    delay: Math.random() * 5, // Délai d'animation aléatoire
+    duration: Math.random() * 10 + 15, // Durée entre 15 et 25s
+    initialX: Math.random() * 100, // Position X initiale en %
+    initialY: Math.random() * 100, // Position Y initiale en %
+    opacity: Math.random() * 0.3 + 0.1, // Opacité entre 0.1 et 0.4
+  }));
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-400/20 to-accent-400/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-accent-400/20 to-primary-400/20 rounded-full blur-3xl"></div>
+        
+        {/* Bulles flottantes animées */}
+        {bubbles.map((bubble) => (
+          <motion.div
+            key={bubble.id}
+            className="absolute rounded-full bg-gradient-to-br from-primary-400/30 to-accent-400/30 backdrop-blur-sm"
+            style={{
+              width: bubble.size,
+              height: bubble.size,
+              left: `${bubble.initialX}%`,
+              top: `${bubble.initialY}%`,
+              opacity: bubble.opacity,
+            }}
+            animate={{
+              y: [-20, -100, -20],
+              x: [-10, 10, -10],
+              scale: [1, 1.1, 1],
+              rotate: [0, 360, 0],
+            }}
+            transition={{
+              duration: bubble.duration,
+              delay: bubble.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
         
         {/* Floating geometric shapes */}
         <motion.div
