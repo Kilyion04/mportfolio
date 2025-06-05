@@ -1,15 +1,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Server, BarChart3, Github, ExternalLink } from 'lucide-react';
+import { ArrowRight, Code, Server, BarChart3, Github, ExternalLink, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 export const HeroSection: React.FC = () => {
   const stats = [
-    { label: 'Projets réalisés', value: '15+', icon: Code },
-    { label: 'Serveurs actifs', value: '3', icon: Server },
-    { label: 'Prédictions IA', value: '1.2K+', icon: BarChart3 }
+    { label: 'Années d\'études', value: '5', icon: Code },
+    { label: 'Stages/Alternance', value: '3', icon: Server },
+    { label: 'Projets réalisés', value: '10+', icon: BarChart3 }
   ];
 
   return (
@@ -42,7 +42,7 @@ export const HeroSection: React.FC = () => {
             className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-8"
           >
             <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-            Disponible pour de nouveaux projets
+            Alternant chez SIA Habitat
           </motion.div>
 
           {/* Main heading */}
@@ -52,11 +52,11 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-display font-bold text-gray-900 dark:text-white mb-6 leading-tight"
           >
-            Développeur
+            Kilyion
             <span className="block bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
-              Full-Stack
+              Romary
             </span>
-            & Tech Innovator
+            Étudiant Ingénieur
           </motion.h1>
 
           {/* Subtitle */}
@@ -66,8 +66,8 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Je crée des applications web modernes, développe des IA pour le football,
-            et gère des serveurs Minecraft avec passion et expertise technique.
+            Alternant Chargé Mission Data chez SIA Habitat. Étudiant en 5ème année à CESI École d'Ingénieurs, 
+            spécialisé en développement et technologies innovantes.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -84,11 +84,23 @@ export const HeroSection: React.FC = () => {
               </Link>
             </Button>
             
-            <Button variant="outline" size="lg" className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary-500 dark:hover:border-primary-400 px-8 py-4 text-lg font-medium group">
-              <Github className="mr-2 w-5 h-5" />
-              GitHub
-              <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div className="flex gap-3">
+              <Button variant="outline" size="lg" className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary-500 dark:hover:border-primary-400 px-6 py-4 text-lg font-medium group" asChild>
+                <a href="https://github.com/Kilyion04" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 w-5 h-5" />
+                  GitHub
+                  <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              
+              <Button variant="outline" size="lg" className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary-500 dark:hover:border-primary-400 px-6 py-4 text-lg font-medium group" asChild>
+                <a href="https://linkedin.com/in/kilyion-romary-806531216" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 w-5 h-5" />
+                  LinkedIn
+                  <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+            </div>
           </motion.div>
 
           {/* Stats */}

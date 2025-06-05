@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -146,8 +146,18 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
-                    <p className="text-lg font-medium text-gray-900 dark:text-white">contact@devtech.com</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Email École</p>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">kilyion.romary@viacesi.fr</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Email Pro</p>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">kilyion.romary@sia-habitat.com</p>
                   </div>
                 </div>
                 
@@ -157,7 +167,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Téléphone</p>
-                    <p className="text-lg font-medium text-gray-900 dark:text-white">+33 6 12 34 56 78</p>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">06 32 63 54 72</p>
                   </div>
                 </div>
                 
@@ -167,7 +177,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Localisation</p>
-                    <p className="text-lg font-medium text-gray-900 dark:text-white">France</p>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">Lille/Douai, France</p>
                   </div>
                 </div>
               </div>
@@ -180,16 +190,28 @@ const Contact = () => {
               </h3>
               
               <div className="flex space-x-4">
-                <Button variant="outline" size="icon" className="w-12 h-12">
-                  <Github className="w-5 h-5" />
+                <Button variant="outline" size="icon" className="w-12 h-12" asChild>
+                  <a href="https://github.com/Kilyion04" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-5 h-5" />
+                  </a>
                 </Button>
-                <Button variant="outline" size="icon" className="w-12 h-12">
-                  <Linkedin className="w-5 h-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="w-12 h-12">
-                  <Twitter className="w-5 h-5" />
+                <Button variant="outline" size="icon" className="w-12 h-12" asChild>
+                  <a href="https://linkedin.com/in/kilyion-romary-806531216" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
                 </Button>
               </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-soft p-8">
+              <h3 className="text-xl font-display font-semibold text-gray-900 dark:text-white mb-4">
+                À propos
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Étudiant en 5ème année à CESI École d'Ingénieurs, actuellement alternant chez SIA Habitat 
+                en tant que Chargé Mission Data. Passionné par le développement et les technologies innovantes.
+              </p>
             </div>
           </motion.div>
         </div>

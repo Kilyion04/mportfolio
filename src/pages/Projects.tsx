@@ -12,7 +12,7 @@ interface Project {
   description: string;
   image: string;
   tags: string[];
-  category: 'web' | 'ai' | 'games' | 'tools';
+  category: 'web' | 'ai' | 'games' | 'tools' | 'data';
   status: 'completed' | 'in-progress' | 'planning';
   links: {
     demo?: string;
@@ -31,32 +31,60 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: '1',
-      title: 'IA Prédiction Football',
-      description: 'Système d\'intelligence artificielle pour prédire les résultats de matchs de football avec une précision de 78%.',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=240&fit=crop',
-      tags: ['Python', 'TensorFlow', 'API', 'Machine Learning'],
+      title: 'Solution de trajet économe en énergie',
+      description: 'Solution Python pour déterminer des trajets optimisés énergétiquement pour les livraisons, en prenant en compte la topographie des lieux. Projet de mobilité internationale.',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=240&fit=crop',
+      tags: ['Python', 'Optimisation', 'Géolocalisation', 'Machine Learning'],
       category: 'ai',
       status: 'completed',
       links: {
-        demo: '/dashboard',
-        github: 'https://github.com'
+        github: 'https://github.com/Kilyion04'
       },
       stats: {
-        users: 234,
-        stars: 89
+        stars: 12
       }
     },
     {
       id: '2',
+      title: 'Applications de gestion industrielle',
+      description: 'Applications internes pour tablette permettant de gérer le matériel au sein d\'une industrie ainsi que les visites d\'entreprise. Développées avec Visual Studio.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=240&fit=crop',
+      tags: ['C#', 'Visual Studio', 'Tablette', 'Gestion'],
+      category: 'tools',
+      status: 'completed',
+      links: {
+        github: 'https://github.com/Kilyion04'
+      },
+      stats: {
+        users: 25
+      }
+    },
+    {
+      id: '3',
+      title: 'Site de gestion matériel LSEE',
+      description: 'Site web utilisant EasyPHP et WordPress pour répertorier tout le matériel informatique du LSEE à la Faculté des Sciences de Béthune.',
+      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=240&fit=crop',
+      tags: ['PHP', 'WordPress', 'EasyPHP', 'MySQL'],
+      category: 'web',
+      status: 'completed',
+      links: {
+        github: 'https://github.com/Kilyion04'
+      },
+      stats: {
+        users: 50
+      }
+    },
+    {
+      id: '4',
       title: 'Dashboard Minecraft',
-      description: 'Interface d\'administration complète pour serveurs Minecraft avec monitoring en temps réel.',
+      description: 'Interface d\'administration complète pour serveurs Minecraft avec monitoring en temps réel et gestion des joueurs.',
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=240&fit=crop',
       tags: ['React', 'Node.js', 'WebSocket', 'Docker'],
       category: 'games',
       status: 'in-progress',
       links: {
         demo: '/serveurs-minecraft',
-        github: 'https://github.com'
+        github: 'https://github.com/Kilyion04'
       },
       stats: {
         users: 67,
@@ -64,33 +92,15 @@ const Projects = () => {
       }
     },
     {
-      id: '3',
-      title: 'E-commerce Platform',
-      description: 'Plateforme e-commerce moderne avec paiements Stripe et gestion d\'inventaire avancée.',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=240&fit=crop',
-      tags: ['Next.js', 'Prisma', 'Stripe', 'PostgreSQL'],
-      category: 'web',
-      status: 'completed',
-      links: {
-        demo: 'https://demo.example.com',
-        github: 'https://github.com'
-      },
-      stats: {
-        users: 1200,
-        stars: 156
-      }
-    },
-    {
-      id: '4',
-      title: 'API Analytics Tool',
-      description: 'Outil d\'analyse et monitoring d\'APIs avec alertes automatiques et métriques détaillées.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=240&fit=crop',
-      tags: ['Node.js', 'Redis', 'Grafana', 'Docker'],
-      category: 'tools',
-      status: 'planning',
-      links: {
-        github: 'https://github.com'
-      }
+      id: '5',
+      title: 'Mission Data SIA Habitat',
+      description: 'Projets en cours dans le cadre de mon alternance chez SIA Habitat en tant que Chargé Mission Data.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=240&fit=crop',
+      tags: ['Python', 'Data Analysis', 'SQL', 'PostgreSQL'],
+      category: 'data',
+      status: 'in-progress',
+      links: {},
+      stats: {}
     }
   ];
 
@@ -99,7 +109,8 @@ const Projects = () => {
     { id: 'web', label: 'Web Apps', count: projects.filter(p => p.category === 'web').length },
     { id: 'ai', label: 'Intelligence Artificielle', count: projects.filter(p => p.category === 'ai').length },
     { id: 'games', label: 'Jeux & Serveurs', count: projects.filter(p => p.category === 'games').length },
-    { id: 'tools', label: 'Outils', count: projects.filter(p => p.category === 'tools').length }
+    { id: 'tools', label: 'Outils', count: projects.filter(p => p.category === 'tools').length },
+    { id: 'data', label: 'Data', count: projects.filter(p => p.category === 'data').length }
   ];
 
   const filteredProjects = projects.filter(project => {
@@ -141,7 +152,8 @@ const Projects = () => {
             Mes Projets
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Découvrez mes réalisations en développement web, intelligence artificielle et technologies gaming.
+            Découvrez mes réalisations académiques et professionnelles : développement web, 
+            optimisation énergétique, gestion industrielle et analyse de données.
           </p>
         </motion.div>
 
@@ -222,7 +234,7 @@ const Projects = () => {
                 <h3 className="text-xl font-display font-semibold text-gray-900 dark:text-white mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -241,7 +253,7 @@ const Projects = () => {
                 </div>
 
                 {/* Stats */}
-                {project.stats && (
+                {(project.stats?.stars || project.stats?.users) && (
                   <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
                     {project.stats.stars && (
                       <div className="flex items-center gap-1">
