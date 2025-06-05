@@ -1,5 +1,3 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,26 +93,25 @@
 @layer base {
   * {
     @apply border-border;
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   html {
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
   }
 
   body {
     @apply bg-background text-foreground;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Transitions spécifiques pour les éléments de navigation et cartes */
   nav, header, main, aside, section, article, div, span, button, input, textarea, select {
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   /* Transition pour les éléments avec backdrop-filter */
   .backdrop-blur-md {
-    transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
   }
 }
-
