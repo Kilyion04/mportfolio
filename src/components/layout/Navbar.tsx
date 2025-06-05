@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, User, Settings, LogIn, LogOut, Menu, X } from 'lucide-react';
+import { Search, User, LogIn, LogOut, Menu, X } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -75,10 +76,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
 
           {/* Right Side - Auth & Settings */}
           <div className="flex items-center space-x-4">
-            {/* Settings */}
-            <Button variant="ghost" size="icon" className="text-gray-600 dark:text-gray-300">
-              <Settings className="w-5 h-5" />
-            </Button>
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Authentication */}
             {isAuthenticated ? (
