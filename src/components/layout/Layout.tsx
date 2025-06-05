@@ -1,0 +1,39 @@
+
+import React, { useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Navbar } from './Navbar';
+import { ContextualSidebar, SidebarItem } from './ContextualSidebar';
+import { LoginModal } from '@/components/auth/LoginModal';
+import { useAuth } from '@/contexts/AuthContext';
+import { useSidebarItems } from '@/hooks/useSidebarItems';
+
+export const Layout: React.FC = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+  const sidebarItems = useSidebarItems(location.pathname);
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 w-full">
+      <Navbar onLoginClick={() => setIsLoginModalOpen(true)} />
+      
+      {/* Sidebar contextuelle */}
+      {sidebarItems.length > 0 && (
+        <ContextualSidebar items={sidebarItems} />
+      )}
+      
+      {/* Main content */}
+      <main className={`pt-16 transition-all duration-300 ${sidebarItems.length > 0 ? 'pl-16 hover:pl-64' : ''}`}>
+        <div className="min-h-[calc(100vh-4rem)]">
+          <Outlet />
+        </div>
+      </main>
+
+      {/* Login Modal */}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+      />
+    </div>
+  );
+};
