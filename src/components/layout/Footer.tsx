@@ -19,11 +19,21 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                 <Mail className="w-4 h-4 mr-3 flex-shrink-0" />
-                <span className="break-all sm:break-normal">kilyion.romary@viacesi.fr</span>
+                <a 
+                  href="mailto:kilyion.romary@viacesi.fr"
+                  className="break-all sm:break-normal hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
+                >
+                  kilyion.romary@viacesi.fr
+                </a>
               </div>
               <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                 <Mail className="w-4 h-4 mr-3 flex-shrink-0" />
-                <span className="break-all sm:break-normal">kilyion.romary@sia-habitat.com</span>
+                <a 
+                  href="mailto:kilyion.romary@sia-habitat.com"
+                  className="break-all sm:break-normal hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
+                >
+                  kilyion.romary@sia-habitat.com
+                </a>
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
@@ -147,7 +146,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Email École</p>
-                    <p className="text-lg font-medium text-gray-900 dark:text-white">kilyion.romary@viacesi.fr</p>
+                    <a 
+                      href="mailto:kilyion.romary@viacesi.fr"
+                      className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
+                    >
+                      kilyion.romary@viacesi.fr
+                    </a>
                   </div>
                 </div>
 
@@ -157,7 +161,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Email Pro</p>
-                    <p className="text-lg font-medium text-gray-900 dark:text-white">kilyion.romary@sia-habitat.com</p>
+                    <a 
+                      href="mailto:kilyion.romary@sia-habitat.com"
+                      className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
+                    >
+                      kilyion.romary@sia-habitat.com
+                    </a>
                   </div>
                 </div>
                 
