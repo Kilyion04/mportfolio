@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, User, LogIn, LogOut, Menu, X } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -23,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
   const { user, logout, isAuthenticated } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { label: 'Accueil', path: '/' },
@@ -31,6 +32,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
     { label: 'Profil', path: '/profil' },
     { label: 'Contact', path: '/contact' }
   ];
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/recherche?q=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery('');
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
@@ -62,16 +71,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
 
           {/* Search Bar */}
           <div className="hidden lg:flex items-center max-w-md mx-8 flex-1">
-            <div className="relative w-full">
+            <form onSubmit={handleSearchSubmit} className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
                 type="text"
-                placeholder="Rechercher projets..."
+                placeholder="Rechercher..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-600 focus:border-primary-500 dark:focus:border-primary-400"
               />
-            </div>
+            </form>
           </div>
 
           {/* Right Side - Auth & Settings */}
@@ -154,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
             
             {/* Mobile Search */}
             <div className="px-4 pt-2">
-              <div className="relative">
+              <form onSubmit={handleSearchSubmit} className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
                   type="text"
@@ -163,7 +172,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10"
                 />
-              </div>
+              </form>
             </div>
           </div>
         )}

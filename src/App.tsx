@@ -13,6 +13,7 @@ import MinecraftServers from "./pages/MinecraftServers";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
+import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
                 <Route path="contact" element={<Contact />} />
                 <Route path="profil" element={<Profile />} />
                 <Route path="dashboard" element={<Dashboard />} />
+                <Route path="recherche" element={<Search />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
