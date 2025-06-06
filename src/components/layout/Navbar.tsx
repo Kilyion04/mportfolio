@@ -41,6 +41,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
     }
   };
 
+  const handleProfileClick = () => {
+    navigate('/profil');
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,6 +117,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
                     </div>
                   </div>
                   <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleProfileClick} className="cursor-pointer">
+                    <User className="mr-2 h-4 w-4" />
+                    Profil
+                  </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/dashboard" className="cursor-pointer">
                       <User className="mr-2 h-4 w-4" />
