@@ -29,6 +29,9 @@ export const ChatbotButton: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  // Calculer le décalage : 1.5x la hauteur du bouton (14 * 4px * 1.5 = 84px)
+  const offsetY = isScrollToTopVisible ? -84 : 0;
+
   return (
     <>
       {/* Bouton flottant du chatbot */}
@@ -37,7 +40,7 @@ export const ChatbotButton: React.FC = () => {
         animate={{ 
           opacity: 1, 
           scale: 1,
-          y: isScrollToTopVisible ? -20 : 0 // Remonte quand le bouton scroll to top est visible
+          y: offsetY
         }}
         transition={{ duration: 0.3 }}
         className="fixed bottom-6 right-6 z-40"
@@ -64,7 +67,7 @@ export const ChatbotButton: React.FC = () => {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+            animate={{ opacity: 1, scale: 1, y: offsetY - 20 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
             className="fixed bottom-24 right-6 w-80 h-96 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 z-40 overflow-hidden"

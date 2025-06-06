@@ -45,9 +45,9 @@ export const ScrollToTopButton: React.FC = () => {
           <Button
             onClick={scrollToTop}
             size="icon"
-            className="w-12 h-12 rounded-full bg-primary-500 hover:bg-primary-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-white dark:border-gray-800"
+            className="w-14 h-14 rounded-full bg-primary-500 hover:bg-primary-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-white dark:border-gray-800"
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="w-6 h-6" />
           </Button>
         </motion.div>
       )}
