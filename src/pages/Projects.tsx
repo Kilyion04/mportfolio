@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, ExternalLink, Github, Star } from 'lucide-react';
@@ -101,6 +102,17 @@ const Projects = () => {
       tags: ['Python', 'Data Analysis', 'SQL', 'PostgreSQL'],
       category: 'data',
       status: 'in-progress',
+      links: {},
+      stats: {}
+    },
+    {
+      id: '6',
+      title: 'IA de prédiction de match de football',
+      description: 'Système d\'intelligence artificielle pour prédire les scores de matchs de football, analyser les statistiques d\'équipes et de joueurs. Utilisation de machine learning et analyse de données historiques.',
+      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=240&fit=crop',
+      tags: ['Python', 'Machine Learning', 'TensorFlow', 'API Football', 'Statistiques'],
+      category: 'ai',
+      status: 'planning',
       links: {},
       stats: {}
     }
