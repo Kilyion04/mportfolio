@@ -5,6 +5,7 @@ import { Navbar } from './Navbar';
 import { ContextualSidebar, SidebarItem } from './ContextualSidebar';
 import { ScrollToTop } from './ScrollToTop';
 import { ScrollToTopButton } from './ScrollToTopButton';
+import { ChatbotButton } from './ChatbotButton';
 import { Footer } from './Footer';
 import { LoginModal } from '@/components/auth/LoginModal';
 import { useAuth } from '@/contexts/AuthContext';
@@ -41,8 +42,9 @@ export const Layout: React.FC = () => {
         <Footer />
       </div>
 
-      {/* Scroll to top button */}
+      {/* Floating buttons */}
       <ScrollToTopButton />
+      <ChatbotButton />
 
       {/* Login Modal */}
       <LoginModal

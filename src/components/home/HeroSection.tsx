@@ -80,7 +80,7 @@ export const HeroSection: React.FC = () => {
             className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-8"
           >
             <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-            Alternant chez SIA Habitat
+            Portfolio Interactif
           </motion.div>
 
           {/* Main heading */}
@@ -94,7 +94,7 @@ export const HeroSection: React.FC = () => {
             <span className="block bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
               Romary
             </span>
-            Étudiant Ingénieur
+            Portfolio Digital
           </motion.h1>
 
           {/* Subtitle */}
@@ -104,8 +104,8 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Alternant Chargé Mission Data chez SIA Habitat. Étudiant en 5ème année à CESI École d'Ingénieurs, 
-            spécialisé en développement et technologies innovantes.
+            Découvrez mes projets, parcourez mes compétences techniques, et explorez mon parcours professionnel. 
+            Utilisez la recherche pour naviguer facilement ou contactez-moi directement.
           </motion.p>
 
           {/* CTA Buttons */}
