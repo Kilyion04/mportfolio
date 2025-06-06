@@ -4,6 +4,8 @@ import { Search, Filter, ExternalLink, Github, Star } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 interface Project {
   id: string;
@@ -26,6 +28,7 @@ interface Project {
 const Projects = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedStatus, setSelectedStatus] = useState<string>('all');
 
   const projects: Project[] = [
     {
@@ -112,14 +115,22 @@ const Projects = () => {
     { id: 'data', label: 'Data', count: projects.filter(p => p.category === 'data').length }
   ];
 
+  const statusOptions = [
+    { id: 'all', label: 'Tous les statuts', count: projects.length },
+    { id: 'completed', label: 'Terminés', count: projects.filter(p => p.status === 'completed').length },
+    { id: 'in-progress', label: 'En cours', count: projects.filter(p => p.status === 'in-progress').length },
+    { id: 'planning', label: 'En attente', count: projects.filter(p => p.status === 'planning').length }
+  ];
+
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     
     const matchesCategory = selectedCategory === 'all' || project.category === selectedCategory;
+    const matchesStatus = selectedStatus === 'all' || project.status === selectedStatus;
     
-    return matchesSearch && matchesCategory;
+    return matchesSearch && matchesCategory && matchesStatus;
   });
 
   const getStatusColor = (status: Project['status']) => {
@@ -163,9 +174,9 @@ const Projects = () => {
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col gap-6">
             {/* Search */}
-            <div className="relative flex-1 max-w-md">
+            <div className="relative max-w-md mx-auto">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <Input
                 type="text"
@@ -176,25 +187,49 @@ const Projects = () => {
               />
             </div>
 
-            {/* Category filters */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={selectedCategory === category.id ? 
-                    "bg-primary-500 hover:bg-primary-600 text-white" : 
-                    "border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary-500"
-                  }
-                >
-                  {category.label}
-                  <Badge variant="secondary" className="ml-2 text-xs">
-                    {category.count}
-                  </Badge>
-                </Button>
-              ))}
+            {/* Filters */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Category filters */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Catégories</h3>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((category) => (
+                    <Button
+                      key={category.id}
+                      variant={selectedCategory === category.id ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedCategory(category.id)}
+                      className={selectedCategory === category.id ? 
+                        "bg-primary-500 hover:bg-primary-600 text-white" : 
+                        "border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary-500"
+                      }
+                    >
+                      {category.label}
+                      <Badge variant="secondary" className="ml-2 text-xs">
+                        {category.count}
+                      </Badge>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Status filters */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Statut</h3>
+                <RadioGroup value={selectedStatus} onValueChange={setSelectedStatus} className="flex flex-wrap gap-4">
+                  {statusOptions.map((status) => (
+                    <div key={status.id} className="flex items-center space-x-2">
+                      <RadioGroupItem value={status.id} id={status.id} />
+                      <Label htmlFor={status.id} className="text-sm cursor-pointer flex items-center gap-2">
+                        {status.label}
+                        <Badge variant="secondary" className="text-xs">
+                          {status.count}
+                        </Badge>
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </div>
             </div>
           </div>
         </motion.div>
