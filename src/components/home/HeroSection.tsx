@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Server, BarChart3, Github, ExternalLink, Linkedin } from 'lucide-react';
@@ -90,11 +89,10 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-display font-bold text-gray-900 dark:text-white mb-6 leading-tight"
           >
-            Kilyion
             <span className="block bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
-              Romary
+              Portfolio
             </span>
-            Portfolio Digital
+            Digital
           </motion.h1>
 
           {/* Subtitle */}
